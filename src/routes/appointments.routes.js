@@ -23,3 +23,4 @@ router
   .get(getOneAppointmentCtrl)
   .put(validate(updateAppointmentSchema), updateAppointmentCtrl)
   .delete(deleteAppointmentCtrl);
+export default router;
