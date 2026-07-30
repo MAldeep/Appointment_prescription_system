@@ -19,9 +19,9 @@ export const createPrescriptionSchema = z.object({
     diagnosis: z
       .string({ required_error: "Diagnosis is required" })
       .min(5, "At least 5 chars"),
+    medicines: z
+      .array(medicineSchema)
+      .min(1, "Prescription must contain at least one medicine"),
+    notes: z.string().optional(),
   }),
-  medicines: z
-    .array(medicineSchema)
-    .min(1, "Prescription must contain at least one medicine"),
-  notes: z.string().optional(),
 });

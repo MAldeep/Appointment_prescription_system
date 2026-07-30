@@ -5,6 +5,7 @@ import appointmentRoutes from "./routes/appointments.routes.js";
 import prescriptionRoutes from "./routes/prescription.routes.js";
 import globalErrorHandler from "./controllers/errorController.js";
 import mongoose from "mongoose";
+import AppError from "./utils/appError.js";
 dotenv.config();
 const app = express();
 if (process.env.NODE_ENV === "development") {

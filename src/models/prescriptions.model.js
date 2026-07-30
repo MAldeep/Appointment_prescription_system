@@ -37,8 +37,8 @@ const prescriptionSchema = new mongoose.Schema(
     medicines: {
       type: [medicineSchema],
       validate: [
-        (val) => val.lenght > 0,
-        "Prescription must contain at least one medicine",
+        (val) => val.length > 0,
+        "Prescription must contains at least one medicine",
       ],
     },
     notes: {

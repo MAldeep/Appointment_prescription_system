@@ -22,7 +22,7 @@ export const getOnePrescriptionCtrl = catchAsync(async (req, res, next) => {
     return next(new AppError("Prescription with this id is not found", 404));
   }
   res.status(200).json({
-    succes: true,
+    success: true,
     data: prescription,
   });
 });

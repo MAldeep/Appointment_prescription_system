@@ -8,7 +8,9 @@ export const getAllAppointments = async (queryParams) => {
   if (patientId) filter.patientId = patientId;
   if (doctorId) filter.doctorId = doctorId;
 
-  const skip = (page - 1) * limit;
+  const pageNum = Number(page) || 1;
+  const limitNum = Number(limit) || 10;
+  const skip = (pageNum - 1) * limitNum;
   const appointments = await Appointment.find(filter)
     .skip(skip)
     .limit(limit)

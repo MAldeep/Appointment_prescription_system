@@ -12,6 +12,8 @@ export const validate = (schema) => (req, res, next) => {
       .join(" | ");
     return next(new AppError(errorMessage, 400));
   }
-  req.body = parseResult.data.body;
+  if (parseResult.data.body) req.body = parseResult.data.body;
+  if (parseResult.data.params) req.params = parseResult.data.params;
+  if (parseResult.data.query) req.query = parseResult.data.query;
   next();
 };

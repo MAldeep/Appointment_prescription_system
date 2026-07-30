@@ -11,9 +11,6 @@ import catchAsync from "../utils/catchAsync.js";
 // get all
 export const getAllAppointmentsCtrl = catchAsync(async (req, res, next) => {
   const appointments = await getAllAppointments(req.query);
-  if (!appointments || appointments.length === 0) {
-    return next(new AppError("appointments not found", 404));
-  }
   res.status(200).json({
     success: true,
     data: appointments,
