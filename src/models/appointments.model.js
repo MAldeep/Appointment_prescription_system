@@ -12,7 +12,6 @@ const appointmentScehma = new mongoose.Schema(
     },
     status: {
       type: String,
-      required: [true, "Status is Required"],
       enum: ["Pending", "Cancelled", "Confirmed", "Completed"],
     },
   },
