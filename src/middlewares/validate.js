@@ -14,6 +14,9 @@ export const validate = (schema) => (req, res, next) => {
   }
   if (parseResult.data.body) req.body = parseResult.data.body;
   if (parseResult.data.params) req.params = parseResult.data.params;
-  if (parseResult.data.query) req.query = parseResult.data.query;
+  if (parseResult.data.query) {
+    Object.keys(req.query).forEach((key) => delete req.query[key]);
+    Object.assign(req.query, parseResult.data.query);
+  }
   next();
 };

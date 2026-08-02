@@ -10,7 +10,8 @@ import catchAsync from "../utils/catchAsync.js";
 
 // get all
 export const getAllAppointmentsCtrl = catchAsync(async (req, res, next) => {
-  const appointments = await getAllAppointments(req.query);
+  const query = req.query;
+  const appointments = await getAllAppointments(query);
   res.status(200).json({
     success: true,
     data: appointments,
